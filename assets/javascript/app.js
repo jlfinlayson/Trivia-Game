@@ -1,37 +1,37 @@
 // Trivia Questions and Answers
 
 var questions = [{
-    question: "What’s the name of Napoleon’s llama in 'Napoleon Dynamite'?",
+    question: "1. What’s the name of Napoleon’s llama in 'Napoleon Dynamite'?",
     choices: ["Pedro", "Gina", "Tina", "LaFawnduh"],
     answer: 2,
 },
 {
-    question: "Which Destiny's Child member was the first to have a solo Billboard No. 1 single?",
+    question: "2. Which Destiny's Child member was the first to have a solo Billboard No. 1 single?",
     choices: ["Beyonce", "Michelle Williams", "LaTavia Roberson", "Kelly Rowland"],
     answer: 3,
 },
 {
-    question: "What is Myspace Tom’s full name?",
+    question: "3. What is Myspace Tom’s full name?",
     choices: ["Tom Anderson", "Thomas Baker", "Tom Baker", "Thomas Jones"],
     answer: 0,
 },
 {
-    question: "In 'Mean Girls,' which Missy Elliot song is playing when Janis and Damian tell Cady about the Plastics?",
+    question: "4. In 'Mean Girls,' which Missy Elliot song is playing when Janis and Damian tell Cady about the Plastics?",
     choices: ["Work It", "Pass That Dutch", "Get Ur Freak On", "Lose Control"],
     answer: 1,
 },
 {
-    question: "What did Paris Hilton think Walmart sold?",
+    question: "5. What did Paris Hilton think Walmart sold?",
     choices: ["Children's Toys", "Pets", "Wall Stuff", "She didn't think it was a real store"],
     answer: 2,
 },
 {
-    question: "Who was the first American Idol winner",
+    question: "6. Who was the first American Idol winner",
     choices: ["Ruben Studdard", "Justin Guarini", "Clay Aiken", "Kelly Clackson"],
     answer: 3,
 },
 {
-    question: "What was the first video uploaded to YouTube?",
+    question: "7. What was the first video uploaded to YouTube?",
     choices: ["Badass Snowboarding", "Me at the zoo", "Never Gonna Give You Up", "Flambe Disaster"],
     answer: 1,
 },
@@ -51,10 +51,15 @@ var log = {
 //Create a start button
 //Make timer run once game starts
 //Create a function to see trivia questions
+
 //Create a loop to go through & show questions
+for (i = 0; i<questions.length; i++){
+    console.log(questions[i]);
+    $(".questions-text").append("<p>" + questions[i].question + "</p>")
 //Create a loop to go through & show answers
 //Create buttons for answers
-//Push all of the above to html
+
+}
 //Create submit button
 //Check to see how many correct, incorrect, and unanswered questions
 //Create restart button
