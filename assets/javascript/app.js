@@ -58,7 +58,11 @@ for (i = 0; i<questions.length; i++){
     $(".questions-text").append("<p>" + questions[i].question + "</p>")
 //Create a loop to go through & show answers
 //Create buttons for answers
+for (j = 0; j<questions[i].choices.length; j++){
 
+$(".questions-text").append("<p>" + questions[i].choices[j] + "</p>")
+
+}
 }
 //Create submit button
 //Check to see how many correct, incorrect, and unanswered questions
