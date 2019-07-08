@@ -38,6 +38,23 @@ var questions = [{
 {
     question: "8. How many weeks was Eminem’s “Lose Yourself” No. 1 on Billboard?",
     choices: ["10", "14", "8", "12"],
-    answer: 1,
+    answer: 0,
 },
 ];
+
+var log = {
+    correctAnswers: 0,
+    incorrectAnswers: 0,
+    unanswered: 0,
+}
+
+//Create a start button
+//Make timer run once game starts
+//Create a function to see trivia questions
+//Create a loop to go through & show questions
+//Create a loop to go through & show answers
+//Create buttons for answers
+//Push all of the above to html
+//Create submit button
+//Check to see how many correct, incorrect, and unanswered questions
+//Create restart button
