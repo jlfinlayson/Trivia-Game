@@ -49,30 +49,32 @@ var log = {
 }
 
 //Make timer run once game starts
+
+
 //Create a function to see trivia questions
-function loadQuestions () {
-//Create a loop to go through & show questions
-for (i = 0; i < questions.length; i++) {
-    console.log(questions[i]);
-    $(".questions-text").append("<p>" + questions[i].question + "</p>")
-    //Create a loop to go through & show choices
-    for (j = 0; j < questions[i].choices.length; j++) {
-        //Create buttons for answers
-        var userChoices = questions[i].choices[j];
-        $(".questions-text").append("<div id='Guesses" + i + j + "'></div>");
-        $(".questions-text").append("<p>" + userChoices + "</p>")
+function loadQuestions() {
+    //Create a loop to go through & show questions
+    for (i = 0; i < questions.length; i++) {
+        console.log(questions[i]);
+        $(".questions-text").append("<p>" + questions[i].question + "</p>")
+        //Create a loop to go through & show choices
+        for (j = 0; j < questions[i].choices.length; j++) {
+            //Create buttons for answers
+            var userChoices = questions[i].choices[j];
+            $(".questions-text").append("<div id='Guesses" + i + j + "'></div>");
+            $(".questions-text").append("<p>" + userChoices + "</p>")
 
-        var radioBtn = $("<input type='radio' name=''/>");
-        radioBtn.appendTo('#Guesses' + i + j);
+            var radioBtn = $("<input type='radio' name=''/>");
+            radioBtn.appendTo('#Guesses' + i + j);
 
-    }
+        }
     }
 }
 
 //Create a start button
 $(".container2").hide();
 $(".container3").hide();
-$("#start").on("click", function(){
+$("#start").on("click", function () {
     loadQuestions();
     $(".container1").hide();
     $(".container2").show();
