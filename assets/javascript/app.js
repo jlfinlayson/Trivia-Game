@@ -49,6 +49,9 @@ var log = {
 }
 
 //Make timer run once game starts
+    //Display 30 to start
+    //Have the counter count down after loadQuestions runs
+    //If time = 0 then go straight to done page and log answers as they were when the time ended
 
 
 //Create a function to see trivia questions
@@ -71,7 +74,7 @@ function loadQuestions() {
     }
 }
 
-//Create a start button
+//Create a start button - I don't think this is how this is supposed to work, but it does?
 $(".container2").hide();
 $(".container3").hide();
 $("#start").on("click", function () {
@@ -79,7 +82,23 @@ $("#start").on("click", function () {
     $(".container1").hide();
     $(".container2").show();
 });
-//Create submit button
 
+//Create submit button
+    // $("#submit").on("click", function () {
+
+    // }
 //Check to see how many correct, incorrect, and unanswered questions
-//Create restart button
+    //Run a loop for both questions and answers
+    //Check to see if userGuess and correct answer are equal
+    //Run a function to do this for all of the questions
+    //Sort into log section
+
+
+
+//Create restart button - again, I don't think this is how it's supposed to work, but I am very lost on this project
+$("#reset").on("click", function () {
+    $(".container1").show();
+    $(".container2").hide();
+    $(".container3").hide();
+});
+;
