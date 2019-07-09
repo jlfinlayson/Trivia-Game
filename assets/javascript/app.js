@@ -48,10 +48,9 @@ var log = {
     unanswered: 0,
 }
 
-//Create a start button
 //Make timer run once game starts
 //Create a function to see trivia questions
-
+function loadQuestions () {
 //Create a loop to go through & show questions
 for (i = 0; i < questions.length; i++) {
     console.log(questions[i]);
@@ -67,7 +66,18 @@ for (i = 0; i < questions.length; i++) {
         radioBtn.appendTo('#Guesses' + i + j);
 
     }
+    }
 }
+
+//Create a start button
+$(".container2").hide();
+$(".container3").hide();
+$("#start").on("click", function(){
+    loadQuestions();
+    $(".container1").hide();
+    $(".container2").show();
+});
 //Create submit button
+
 //Check to see how many correct, incorrect, and unanswered questions
 //Create restart button
