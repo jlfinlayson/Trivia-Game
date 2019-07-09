@@ -56,12 +56,15 @@ var log = {
 for (i = 0; i < questions.length; i++) {
     console.log(questions[i]);
     $(".questions-text").append("<p>" + questions[i].question + "</p>")
-    //Create a loop to go through & show answers
-    //Create buttons for answers
+    //Create a loop to go through & show choices
     for (j = 0; j < questions[i].choices.length; j++) {
+        //Create buttons for answers
         var userChoices = questions[i].choices[j];
+        $(".questions-text").append("<div id='Guesses" + i + j + "'></div>");
         $(".questions-text").append("<p>" + userChoices + "</p>")
 
+        var radioBtn = $("<input type='radio' name=''/>");
+        radioBtn.appendTo('#Guesses' + i + j);
 
     }
 }
