@@ -64,7 +64,7 @@ function loadQuestions() {
             $(".questions-text").append("<div id='Guesses" + i + j + "'></div>");
             $(".questions-text").append("<p>" + userChoices + "</p>")
 
-            var radioBtn = $("<input type='radio' name=''/>");
+            var radioBtn = $("<input type='radio' name='options' id='Guesses + i + j + '/>");
             radioBtn.appendTo('#Guesses' + i + j);
 
         }
