@@ -12,4 +12,4 @@ The 2000's Trivia Game features multiple choice or true/false questions related 
  
  ### Demo
  
- * [DEMO](https://jlfinlayson.github.io/TriviaGame/)
+ * [DEMO](https://jlfinlayson.github.io/Trivia-Game/)
