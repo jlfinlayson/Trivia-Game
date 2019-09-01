@@ -86,6 +86,17 @@ var game = {
         game.loadQuestions();
     },
 
+    // Function to see results
+    results: function() {
+        clearInterval(timer);
+
+        card.html("<h2>DONE</h2>");
+        card.append("<h3>Correct Answers: " + game.correctAnswers + "</h3>");
+        card.append("<h3>Incorrect Answers: " + game.incorrectAnswers + "</h3>");
+        card.append("<button id='newGame'>Play Again?</button>");
+
+    },
+
     // Function for when time is up
 
     timeUp: function () {
@@ -121,14 +132,13 @@ var game = {
 
         clearInterval(timer);
 
-        card.html("<h2>COOL BEANS!</h2>");
+        card.html("<h2>BOOYAH!</h2>");
         if (this.currentQuestion === questions.length - 1) {
             setTimeout(game.results, 3 * 1000);
         }
         else {
             setTimeout(game.nextQuestion, 3 * 1000);
         }
-
     },
 
     // Function to check if answer is incorrect
@@ -145,10 +155,7 @@ var game = {
         else {
             setTimeout(game.nextQuestion, 3 * 1000);
         }
-
     },
-
-    // Function to see results
 
     // Function to start game over
     newGame: function() {
@@ -160,8 +167,6 @@ var game = {
         this.loadQuestions();
 
     }
-
-
 };
 
 // Start Button
@@ -176,7 +181,6 @@ $(document).on("click", ".answer-button", function(){
 });
 
 // Startover Button
-// $(document).on("click", "", function() {
-//     $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
-//     game.loadQuestions();
-// });
+$(document).on("click", "#newGame", function() {
+    game.newGame();
+});
