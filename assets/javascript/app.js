@@ -66,7 +66,6 @@ var game = {
         }
     },
 
-
     // Function to loop through and display questions
     loadQuestions: function () {
         timer = setInterval(game.countdown, 1000);
@@ -76,6 +75,15 @@ var game = {
         for (i = 0; i < questions[this.currentQuestion].choices.length; i++) {
             card.append("<button class='answer-button' id='button' dataname='" + questions[this.currentQuestion].choices[i] + "'>" + questions[this.currentQuestion].choices[i] + "</button>")
         }
+    },
+
+    // Function to show the next question
+
+    nextQuestion: function() {
+        game.counter = countStartNumber;
+        $("#counter-number").text(game.counter);
+        game.currentQuestion++;
+        game.loadQuestions();
     },
 
     // Function for when time is up
@@ -96,27 +104,61 @@ var game = {
         }
     },
 
+    // Function to check if answer is correct
+    correct: function () {
+        game.correctAnswers++;
 
+        clearInterval(timer);
 
-    //Check to see how many correct, incorrect, and unanswered questions
-    //Run a loop for both questions and answers
-    //Check to see if userGuess and correct answer are equal
-    //Run a function to do this for all of the questions
-    //Sort into log section
+        card.html("<h2>COOL BEANS!</h2>");
+        if (this.currentQuestion === questions.length - 1) {
+            setTimeout(game.results, 3 * 1000);
+        }
+        else {
+            setTimeout(game.nextQuestion, 3 * 1000);
+        }
 
+    },
 
+    // Function to check if answer is incorrect
+    incorrect: function () {
+        game.incorrectAnswers++;
 
-    //Create restart button - again, I don't think this is how it's supposed to work, but I am very lost on this project
-    // $("#reset").on("click", function () {
-    // $(".container1").show();
-    // $(".container2").hide();
-    // $(".container3").hide();
-    // });
+        clearInterval(timer);
+
+        card.html("<h2>AS IF!</h2>");
+        card.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].answer);
+        if (this.currentQuestion === questions.length - 1) {
+            setTimeout(game.results, 3 * 1000);
+        }
+        else {
+            setTimeout(game.nextQuestion, 3 * 1000);
+        }
+
+    },
+
+    // Function to see results
+
+    // Function for when button is clicked
+
+    // Function to start game over
+
 
 };
 
-// Start button
+// Start Button
 $(document).on("click", "#start", function () {
+    $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+    game.loadQuestions();
+});
+
+// Answer Button
+$(document).on("click", "answer-button", function(){
+
+});
+
+// Startover Button
+$(document).on("click", "", function() {
     $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
     game.loadQuestions();
 });
