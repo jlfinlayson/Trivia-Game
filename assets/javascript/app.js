@@ -151,6 +151,15 @@ var game = {
     // Function to see results
 
     // Function to start game over
+    newGame: function() {
+        this.questions = questions;
+        this.currentQuestion = 0;
+        this.correctAnswers = 0;
+        this.incorrectAnswers = 0;
+        this.counter = countStartNumber;
+        this.loadQuestions();
+
+    }
 
 
 };
