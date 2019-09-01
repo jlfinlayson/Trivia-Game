@@ -1,0 +1,18 @@
+* {
+    height: auto;
+}
+
+body {
+    text-align: center;
+}
+
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 45px;
+    color: #000;
+}
+
+.jumbotron {
+    height: 600px;
+    width: 800px;
+}
