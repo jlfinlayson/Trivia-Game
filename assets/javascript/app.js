@@ -7,42 +7,42 @@ var countStartNumber = 30;
 var questions = [{
     question: "1. What’s the name of Napoleon’s llama in 'Napoleon Dynamite'?",
     choices: ["Pedro", "Gina", "Tina", "LaFawnduh"],
-    answer: 2,
+    answer: "Tina",
 },
 {
     question: "2. Which Destiny's Child member was the first to have a solo Billboard No. 1 single?",
     choices: ["Beyonce", "Michelle Williams", "LaTavia Roberson", "Kelly Rowland"],
-    answer: 3,
+    answer: "Kelly Rowland",
 },
 {
     question: "3. What is Myspace Tom’s full name?",
     choices: ["Tom Anderson", "Thomas Baker", "Tom Baker", "Thomas Jones"],
-    answer: 0,
+    answer: "Tom Anderson",
 },
 {
     question: "4. In 'Mean Girls,' which Missy Elliot song is playing when Janis and Damian tell Cady about the Plastics?",
     choices: ["Work It", "Pass That Dutch", "Get Ur Freak On", "Lose Control"],
-    answer: 1,
+    answer: "Pass That Dutch",
 },
 {
     question: "5. What did Paris Hilton think Walmart sold?",
     choices: ["Children's Toys", "Pets", "Wall Stuff", "She didn't think it was a real store"],
-    answer: 2,
+    answer: "Wall Stuff",
 },
 {
     question: "6. Who was the first American Idol winner",
     choices: ["Ruben Studdard", "Justin Guarini", "Clay Aiken", "Kelly Clackson"],
-    answer: 3,
+    answer: "Kelly Clarckson",
 },
 {
     question: "7. What was the first video uploaded to YouTube?",
     choices: ["Badass Snowboarding", "Me at the zoo", "Never Gonna Give You Up", "Flambe Disaster"],
-    answer: 1,
+    answer: "Me at the zoo",
 },
 {
     question: "8. How many weeks was Eminem’s “Lose Yourself” No. 1 on Billboard?",
     choices: ["10", "14", "8", "12"],
-    answer: 0,
+    answer: "10",
 }];
 
 var timer;
