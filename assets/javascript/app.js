@@ -73,7 +73,7 @@ var game = {
         card.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
 
         for (i = 0; i < questions[this.currentQuestion].choices.length; i++) {
-            card.append("<button class='answer-button' id='button' dataname='" + questions[this.currentQuestion].choices[i] + "'>" + questions[this.currentQuestion].choices[i] + "</button>")
+            card.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].choices[i] + "'>" + questions[this.currentQuestion].choices[i] + "</button>")
         }
     },
 
@@ -104,8 +104,19 @@ var game = {
         }
     },
 
+       // Function for when button is clicked
+       clicked: function(event) {
+        clearInterval(timer);
+        if ($(event.target).attr("data-name") === questions[this.currentQuestion].answer) {
+            this.answerCorrect();
+        }
+        else {
+            this.answerIncorrect();
+        }
+    },
+
     // Function to check if answer is correct
-    correct: function () {
+    answerCorrect: function () {
         game.correctAnswers++;
 
         clearInterval(timer);
@@ -121,7 +132,7 @@ var game = {
     },
 
     // Function to check if answer is incorrect
-    incorrect: function () {
+    answerIncorrect: function () {
         game.incorrectAnswers++;
 
         clearInterval(timer);
@@ -139,8 +150,6 @@ var game = {
 
     // Function to see results
 
-    // Function for when button is clicked
-
     // Function to start game over
 
 
@@ -153,12 +162,12 @@ $(document).on("click", "#start", function () {
 });
 
 // Answer Button
-$(document).on("click", "answer-button", function(){
-
+$(document).on("click", ".answer-button", function(){
+    game.clicked(event);
 });
 
 // Startover Button
-$(document).on("click", "", function() {
-    $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
-    game.loadQuestions();
-});
+// $(document).on("click", "", function() {
+//     $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+//     game.loadQuestions();
+// });
