@@ -1,3 +1,7 @@
+
+var card = $("#quiz-area");
+var countStartNumber = 30;
+
 // Trivia Questions and Answers
 
 var questions = [{
@@ -39,55 +43,55 @@ var questions = [{
     question: "8. How many weeks was Eminem’s “Lose Yourself” No. 1 on Billboard?",
     choices: ["10", "14", "8", "12"],
     answer: 0,
-},
-];
+}];
 
-var log = {
+var timer;
+
+var game = {
+    questions: questions,
+    currentQuestion: 0,
     correctAnswers: 0,
     incorrectAnswers: 0,
-    unanswered: 0,
-}
-
-//Make timer run once game starts
-    //Display 30 to start
-    //Have the counter count down after loadQuestions runs
-    //If time = 0 then go straight to done page and log answers as they were when the time ended
+    counter: countStartNumber,
 
 
-//Create a function to see trivia questions
-function loadQuestions() {
-    //Create a loop to go through & show questions
-    for (i = 0; i < questions.length; i++) {
-        console.log(questions[i]);
-        $(".questions-text").append("<p>" + questions[i].question + "</p>")
-        //Create a loop to go through & show choices
-        for (j = 0; j < questions[i].choices.length; j++) {
-            //Create buttons for answers
-            var userChoices = questions[i].choices[j];
-            $(".questions-text").append("<div id='Guesses" + i + j + "'></div>");
-            $(".questions-text").append("<p>" + userChoices + "</p>")
+    // Timer Function
 
-            var radioBtn = $("<input type='radio' name=''/>");
-            radioBtn.appendTo('#Guesses' + i + j);
-
+    countdown: function() {
+        this.counter--;
+        $("#counter-number").text(this.counter);
+        if (this.counter === 0) {
+            console.log("TIME UP");
         }
-    }
-}
+    },
 
-//Create a start button - I don't think this is how this is supposed to work, but it does?
-$(".container2").hide();
-$(".container3").hide();
-$("#start").on("click", function () {
-    loadQuestions();
-    $(".container1").hide();
-    $(".container2").show();
-});
 
-//Create submit button
+    // Function to loop through and display questions
+    loadQuestions: function() {
+        timer = setInterval(this.countdown(this), 1000);
+        
+        card.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
+
+        for (i = 0; i < questions[this.currentQuestion].choices.length; i++) {
+            card.append("<button class='answer-button' id='button' dataname='" + questions[this.currentQuestion].choices[i] + "'>" + questions[this.currentQuestion].choices[i] + "</button>")
+        }
+    },
+    
+
+    //Create a start button - I don't think this is how this is supposed to work, but it does?
+    // $(".container2").hide();
+    // $(".container3").hide();
+    // $("#start").on("click", function () {
+    // loadQuestions();
+    // $(".container1").hide();
+    // $(".container2").show();
+    // });
+
+    //Create submit button
     // $("#submit").on("click", function () {
 
     // }
-//Check to see how many correct, incorrect, and unanswered questions
+    //Check to see how many correct, incorrect, and unanswered questions
     //Run a loop for both questions and answers
     //Check to see if userGuess and correct answer are equal
     //Run a function to do this for all of the questions
@@ -95,10 +99,17 @@ $("#start").on("click", function () {
 
 
 
-//Create restart button - again, I don't think this is how it's supposed to work, but I am very lost on this project
-$("#reset").on("click", function () {
-    $(".container1").show();
-    $(".container2").hide();
-    $(".container3").hide();
+    //Create restart button - again, I don't think this is how it's supposed to work, but I am very lost on this project
+    // $("#reset").on("click", function () {
+    // $(".container1").show();
+    // $(".container2").hide();
+    // $(".container3").hide();
+    // });
+
+};
+
+// Start button
+$(document).on("click", "#start", function() {
+    $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+  game.loadQuestions();
 });
-;
