@@ -57,40 +57,47 @@ var game = {
 
     // Timer Function
 
-    countdown: function() {
-        this.counter--;
-        $("#counter-number").text(this.counter);
-        if (this.counter === 0) {
+    countdown: function () {
+        game.counter--;
+        $("#counter-number").text(game.counter);
+        if (game.counter === 0) {
             console.log("TIME UP");
+            game.timeUp();
         }
     },
 
 
     // Function to loop through and display questions
-    loadQuestions: function() {
-        timer = setInterval(this.countdown(this), 1000);
-        
+    loadQuestions: function () {
+        timer = setInterval(game.countdown, 1000);
+
         card.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
 
         for (i = 0; i < questions[this.currentQuestion].choices.length; i++) {
             card.append("<button class='answer-button' id='button' dataname='" + questions[this.currentQuestion].choices[i] + "'>" + questions[this.currentQuestion].choices[i] + "</button>")
         }
     },
-    
 
-    //Create a start button - I don't think this is how this is supposed to work, but it does?
-    // $(".container2").hide();
-    // $(".container3").hide();
-    // $("#start").on("click", function () {
-    // loadQuestions();
-    // $(".container1").hide();
-    // $(".container2").show();
-    // });
+    // Function for when time is up
 
-    //Create submit button
-    // $("#submit").on("click", function () {
+    timeUp: function () {
 
-    // }
+        clearInterval(timer);
+
+        $("#counter-number").text(game.counter);
+
+        card.html("<h2>Out of Time!</h2>");
+        card.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].answer);
+        if (this.currentQuestion === questions.length - 1) {
+            setTimeout(game.results, 3 * 1000);
+        }
+        else {
+            setTimeout(game.nextQuestion, 3 * 1000);
+        }
+    },
+
+
+
     //Check to see how many correct, incorrect, and unanswered questions
     //Run a loop for both questions and answers
     //Check to see if userGuess and correct answer are equal
@@ -109,7 +116,7 @@ var game = {
 };
 
 // Start button
-$(document).on("click", "#start", function() {
+$(document).on("click", "#start", function () {
     $("#timer").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
-  game.loadQuestions();
+    game.loadQuestions();
 });
